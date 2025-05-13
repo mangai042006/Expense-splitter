@@ -4,21 +4,114 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Expense Splitter</title>
-  <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #4a90e2;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group input {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      color: #333;
+      font-size: 1rem;
+    }
+
+    .input-group button {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .input-group button:hover {
+      background-color: #3b7dc4;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+    .icon-btn {
+      flex: 1;
+      margin: 0 0.25rem;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 8px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .icon-btn:hover {
+      background-color: #3b7dc4;
+    }
+
+    #result {
+      margin-top: 1.5rem;
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-radius: 8px;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>Expense Splitter</h1>
 
-    <!-- Create Group -->
     <div class="input-group">
       <input id="membersInput" placeholder="Enter members (comma separated)" />
       <button id="saveMembers">Create Group</button>
     </div>
 
-    <!-- Add Expense -->
     <div class="input-group">
       <input id="paidBy" placeholder="Paid by (Member)" />
       <input id="amount" type="number" placeholder="Amount" />
@@ -26,17 +119,11 @@
       <button id="addExpense">Add Expense</button>
     </div>
 
-    <!-- Action Icons -->
     <div class="icons">
-      <button id="showSplit" class="icon-btn">
-        <span class="material-icons">visibility</span>
-      </button>
-      <button id="showHistory" class="icon-btn">
-        <span class="material-icons">history</span>
-      </button>
+      <button id="showSplit" class="icon-btn">Split</button>
+      <button id="showHistory" class="icon-btn">View History</button>
     </div>
 
-    <!-- Results -->
     <div id="result"></div>
   </div>
 
